@@ -12,7 +12,7 @@ class TemperTest extends PHPUnit_Framework_TestCase
 
     public function testDestroy()
     {
-        $this->assertTrue($this->temper->unlink());
+        $this->assertTrue($this->temper->destroy());
     }
 
     public function testPath()
