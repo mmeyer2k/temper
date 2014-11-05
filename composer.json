@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dopecode\\Temper": "src/"
+            "Dopecode\\Temper\\": "src/"
         }
     },
     "minimum-stability": "dev"
