@@ -3,21 +3,11 @@
 class TemperTest extends PHPUnit_Framework_TestCase
 {
 
-    private $temper = null;
-
-    public function testConstruct()
+    public function testFunctions()
     {
-        $this->temper = new Dopecode\Temper\Temper('1234');
-    }
-
-    public function testDestroy()
-    {
-        $this->assertTrue($this->temper->destroy());
-    }
-
-    public function testPath()
-    {
-        $this->assertTrue(strlen($this->temper->path()) > 0);
+        $temper = new Dopecode\Temper\Temper('1234');
+        $this->assertTrue($temper->destroy());
+        $this->assertTrue(strlen($temper->path()) > 0);
     }
 
 }
