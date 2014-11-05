@@ -3,7 +3,7 @@ temper
 
 Fast and intuitive temp file creation.
 
-```
+```php
 # Import the Temper namespace
 use Dopecode\Temper;
 
