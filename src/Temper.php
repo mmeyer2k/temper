@@ -20,6 +20,7 @@ class Temper
         $handle = fopen($this->path, 'w');
         fwrite($handle, $content);
         fclose($handle);
+        register_shutdown_function('\Dopecode\Temper\Temper::shutdown', $this->path);
     }
 
     /**
@@ -29,7 +30,7 @@ class Temper
      */
     public function destroy()
     {
-        return unlink($this->path);
+        return self::shutdown($this->path);
     }
 
     /**
@@ -40,6 +41,19 @@ class Temper
     public function path()
     {
         return $this->path;
+    }
+
+    /**
+     * A globally accessible shutdown function to remove remaining temp files.
+     * 
+     * @param string $path
+     */
+    public static function shutdown($path)
+    {
+        if (file_exists($path)) {
+            return unlink($path);
+        }
+        return false;
     }
 
 }
