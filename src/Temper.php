@@ -46,7 +46,8 @@ class Temper
     /**
      * A globally accessible shutdown function to remove remaining temp files.
      * 
-     * @param string $path
+     * @param string $path Path to the temp file which will be deleted.
+     * @return boolean
      */
     public static function shutdown($path)
     {
