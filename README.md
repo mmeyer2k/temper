@@ -1,6 +1,6 @@
 temper
 ======
-[![Build Status](https://travis-ci.org/dopecode/temper.png)](https://travis-ci.org/dopecode/temper)
+[![Build Status](https://travis-ci.org/mmeyer2k/temper.png)](https://travis-ci.org/dopecode/temper)
 Fast and intuitive temp file creation.
 
 ```php
