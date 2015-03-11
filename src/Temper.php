@@ -43,6 +43,21 @@ class Temper
         return $this->path;
     }
 
+    /*
+     * Rename the file in the same directory. Overwrite if existing.
+     * 
+     * @return boolean Return true on success, false of failure.
+     */
+
+    public function rename($name)
+    {
+        $newPath = sys_get_temp_dir() . "/$name";
+        $ret = rename($this->path(), $newPath);
+        $this->path = $newPath;
+        
+        return $ret;
+    }
+
     /**
      * A globally accessible shutdown function to remove remaining temp files.
      * 
