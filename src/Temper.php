@@ -54,8 +54,18 @@ class Temper
         $newPath = sys_get_temp_dir() . "/$name";
         $ret = rename($this->path(), $newPath);
         $this->path = $newPath;
-        
+
         return $ret;
+    }
+
+    /**
+     * Return the temp file's size in bytes.
+     * 
+     * @return int
+     */
+    public static function size()
+    {
+        return filesize($this->path());
     }
 
     /**
