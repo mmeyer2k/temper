@@ -79,6 +79,7 @@ class Temper
         if (file_exists($path)) {
             return unlink($path);
         }
+        
         return false;
     }
 
