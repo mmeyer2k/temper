@@ -10,17 +10,17 @@ class Temper
     /**
      * Create a temp file with given content.
      * 
-     * @param string      $content Binary data to populate into file
+     * @param string|null $content Binary data to populate into file
      * @param string|null $path    Custom temp directory, or system default if null
      * @param string|null $prefix  Custom prefix for temp file to prevent collisions
      */
-    public function __construct($content, $path = null, $prefix = null)
+    public function __construct($content = null, $path = null, $prefix = null)
     {
         $this->path = tempnam($path, $prefix);
         $handle = fopen($this->path, 'w');
         fwrite($handle, $content);
         fclose($handle);
-        register_shutdown_function('\Dopecode\Temper\Temper::shutdown', $this->path);
+        register_shutdown_function('\Temper\Temper::shutdown', $this->path);
     }
 
     /**
