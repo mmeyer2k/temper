@@ -1,6 +1,6 @@
 <?php
 
-namespace Dopecode\Temper;
+namespace Temper;
 
 class Temper
 {
