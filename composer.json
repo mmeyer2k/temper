@@ -1,5 +1,5 @@
 {
-    "name": "dopecode/temper",
+    "name": "mmeyer2k/temper",
     "description": "Intelligent PHP temporary files.",
     "tags": ["temp"],
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dopecode\\Temper\\": "src/"
+            "Temper\\": "src/"
         }
     },
     "minimum-stability": "dev"
