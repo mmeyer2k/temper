@@ -12,7 +12,7 @@ branches:
     - master
 
 before_script:
-  - pyrus install pear/PHP_CodeSniffer
+  - pyrus install PHP_CodeSniffer
   - phpenv rehash
   - composer install
 
