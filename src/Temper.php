@@ -5,7 +5,7 @@ namespace Temper;
 class Temper
 {
 
-    private $path = null;
+    public $path = null;
 
     /**
      * Create a temp file with given content.
