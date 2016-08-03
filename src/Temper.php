@@ -9,23 +9,25 @@ class Temper
 
     /**
      * Create a temp file with given content.
-     * 
+     *
      * @param string|null $content Binary data to populate into file
-     * @param string|null $path    Custom temp directory, or system default if null
-     * @param string|null $prefix  Custom prefix for temp file to prevent collisions
+     * @param string|null $path Custom temp directory, or system default if null
+     * @param string|null $prefix Custom prefix for temp file to prevent collisions
      */
     public function __construct($content = null, $path = null, $prefix = null)
     {
         $this->path = tempnam($path, $prefix);
-        $handle = fopen($this->path, 'w');
-        fwrite($handle, $content);
-        fclose($handle);
+        if ($content) {
+            $handle = fopen($this->path, 'w');
+            fwrite($handle, $content);
+            fclose($handle);
+        }
         register_shutdown_function('\Temper\Temper::shutdown', $this->path);
     }
 
     /**
      * Delete the temp file.
-     * 
+     *
      * @return boolean
      */
     public function destroy()
@@ -35,7 +37,7 @@ class Temper
 
     /**
      * Return the file system path of the temp file.
-     * 
+     *
      * @return string
      */
     public function path()
@@ -60,17 +62,17 @@ class Temper
 
     /**
      * Return the temp file's size in bytes.
-     * 
+     *
      * @return int
      */
-    public static function size()
+    public function size()
     {
-        return filesize($this->path());
+        return filesize($this->path);
     }
 
     /**
      * A globally accessible shutdown function to remove remaining temp files.
-     * 
+     *
      * @param string $path Path to the temp file which will be deleted.
      * @return boolean
      */
@@ -79,7 +81,7 @@ class Temper
         if (file_exists($path)) {
             return unlink($path);
         }
-        
+
         return false;
     }
 
